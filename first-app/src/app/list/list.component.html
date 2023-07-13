@@ -1,0 +1,25 @@
+<div  class="row mt-5" >
+
+  <div class="col-3" *ngFor="let i of heros">
+
+    <div [ngClass]="{'card p-1':true , 'high':i.power>=100,  'medium':i.power<100 && i.power>=50 ,'low':i.power<50  }">
+
+        <div class="card-image">
+          <img class="w-100" [src]="i.image" alt="">
+        </div>
+
+        <div class="card-body">
+
+            <h2>{{i.name}}</h2>
+            <p>{{i.power}}</p>
+
+            <button (click)="del(i._id)" class="btn btn-danger">Delete</button>
+            <button [routerLink]="[ '/update' , i._id]" class="btn btn-info"> Update </button>
+
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
